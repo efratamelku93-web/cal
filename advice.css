@@ -1,0 +1,951 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
+
+/* ========== 1. ROOT VARIABLES ========== */
+:root {
+    --mau-blue: #003366;
+    --mau-purple: #321a81;
+    --mau-gold: #ffb81c;
+    --mau-red: #ff4d2e;
+    --bg-gray: #f4f7fa;
+    --bg-dark: #0f172a;
+    --text-light: #94a3b8;
+    --white: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== 2. ROOT CONTAINER ========== */
+.advice-root {
+    background-color: #e2e8f0;
+    background-size: cover;
+    min-height: 100vh;
+    padding-bottom: 50px;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+/* ========== 3. MAIN LAYOUT ========== */
+.advice-layout {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+/* ========== 4. LANGUAGE SWITCHER ========== */
+.lang-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 6px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.lang-switcher button {
+    border: none;
+    background: transparent;
+    padding: 8px 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.lang-switcher button.active {
+    background: var(--mau-blue);
+    color: white;
+}
+
+.lang-switcher img {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+}
+
+/* ========== 5. SIDEBAR NAVIGATION ========== */
+.advice-nav {
+    flex: 0 0 280px;
+    background: var(--bg-dark);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 100;
+    overflow-y: auto;
+}
+
+/* Category Label */
+.nav-group-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 10px 15px;
+    margin-top: 10px;
+}
+
+/* Individual Navigation Item */
+.nav-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    font-size: 14.5px;
+}
+
+/* Icon Box */
+.nav-icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    margin-right: 14px;
+    color: #64748b;
+    transition: all 0.3s ease;
+}
+
+/* Navigation Text */
+.nav-title-text {
+    font-size: 14.5px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0.9;
+}
+
+/* Hover State */
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+.nav-item:hover .nav-icon-box {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--mau-gold);
+}
+
+/* Active State */
+.nav-item.active {
+    background: var(--mau-purple);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(50, 26, 129, 0.3);
+}
+
+.nav-item.active .nav-icon-box {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+/* My Requests Button Special Style */
+.nav-item[onClick*="9"] {
+    margin-top: 20px;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    padding-top: 14px;
+}
+
+.nav-item[onClick*="9"].active {
+    border: 1px solid var(--mau-purple);
+}
+
+/* ========== 6. MAIN CONTENT AREA ========== */
+.advice-content {
+    flex: 1;
+    padding: 0;
+    background: #f1f5f9;
+}
+
+.content-card {
+    background: white;
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* ========== 7. VIDEO SECTION ========== */
+.video-section {
+    width: 100%;
+    background: #000;
+    padding: 0;
+}
+
+.video-container {
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+
+.main-video {
+    width: 100%;
+    max-height: 80vh;
+    display: block;
+    background: #000;
+}
+
+/* Video Controls */
+.video-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background: #f8fafc;
+}
+
+.ctrl-btn {
+    background: var(--mau-gold);
+    color: var(--mau-blue);
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.ctrl-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.vid-indicator {
+    font-weight: 600;
+    color: var(--mau-blue);
+}
+
+/* ========== 8. TEXT/CONTENT SECTION ========== */
+.text-section {
+    padding: 40px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text-section h1 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--mau-blue);
+    font-size: 2.2rem;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.divider {
+    height: 4px;
+    width: 60px;
+    background: var(--mau-gold);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+/* Content Body */
+.content-body {
+    line-height: 1.8;
+    color: #334155;
+    font-size: 1rem;
+}
+
+.para-text {
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+.bullet-point {
+    padding-left: 20px;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+/* ========== 9. PDF DOWNLOAD CARD ========== */
+.pdf-download-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    margin-top: 30px;
+    transition: var(--transition);
+}
+
+.pdf-download-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.pdf-icon-side {
+    color: #2563eb;
+}
+
+.pdf-info-side {
+    flex: 1;
+}
+
+.pdf-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+}
+
+.pdf-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.pdf-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.pdf-action-btn:hover {
+    color: #1d4ed8;
+}
+
+/* ========== 10. REQUEST DISPLAY AREA ========== */
+.request-display-area {
+    padding: 30px;
+    animation: fadeIn 0.5s ease;
+}
+
+.section-main-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--mau-purple);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ========== 11. SCROLLBAR STYLING ========== */
+.advice-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+.advice-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.content-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.content-body::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+/* ========== 12. ANIMATIONS ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease;
+}
+
+/* ========== 13. RESPONSIVE DESIGN ========== */
+@media (max-width: 1024px) {
+    .advice-nav {
+        flex: 0 0 80px;
+        padding: 20px 10px;
+    }
+
+    .nav-title-text,
+    .nav-group-label {
+        display: none;
+    }
+
+    .nav-icon-box {
+        margin-right: 0;
+        width: 45px;
+        height: 45px;
+    }
+
+    .nav-item {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .advice-layout {
+        flex-direction: column;
+    }
+
+    .advice-nav {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 10px;
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    .advice-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .text-section {
+        padding: 20px;
+    }
+
+    .text-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-title-text {
+        display: none;
+    }
+}
+
+/* Add this at the end of your advice.css */
+
+/* My Requests special button styling */
+.nav-item[onClick*="9"] {
+    margin-top: 8px;
+    border: 1px dashed rgba(255, 255, 255, 0.15) !important;
+}
+
+.nav-item[onClick*="9"]:hover {
+    border: 1px dashed rgba(255, 184, 28, 0.4) !important;
+}
+
+.nav-item[onClick*="9"].active {
+    border: 1px solid var(--mau-purple) !important;
+}
+
+/* Request display area styling */
+.request-display-area {
+    padding: 30px;
+    animation: fadeIn 0.5s ease;
+}
+
+.section-main-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #321a81;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* My Requests Button Special Styling */
+.nav-item[onClick*="9"] {
+    border: 1px dashed rgba(255, 255, 255, 0.2) !important;
+}
+
+.nav-item[onClick*="9"]:hover {
+    border: 1px dashed rgba(255, 184, 28, 0.5) !important;
+}
+
+.nav-item[onClick*="9"].active {
+    border: 1px solid #321a81 !important;
+    background: #321a81 !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    box-shadow: 0 10px 20px rgba(50, 26, 129, 0.3) !important;
+}
+
+/* ========== AI CHAT - FLOATING WIDGET ========== */
+
+/* Main Container */
+.fixed-ai-chat {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Chat Trigger Button (Floating Icon) */
+.chat-trigger {
+    background: linear-gradient(135deg, #1a237e, #3949ab);
+    color: white;
+    border: none;
+    padding: 15px 28px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.chat-trigger::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.2; }
+    100% { transform: scale(0.8); opacity: 0.5; }
+}
+
+.chat-trigger:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(26, 35, 126, 0.4);
+}
+
+.chat-trigger i {
+    font-size: 1.3rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Chat Window */
+.chat-window {
+    position: absolute;
+    bottom: 90px;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    background: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Chat Header */
+.chat-window .chat-header {
+    background: linear-gradient(135deg, #1a237e, #283593);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-info i {
+    font-size: 1.6rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+.close-chat {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.close-chat:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+/* Chat Body */
+.chat-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    scroll-behavior: smooth;
+}
+
+/* Message Wrapper */
+.msg-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.msg-wrapper.user {
+    justify-content: flex-end;
+}
+
+.msg-wrapper.bot {
+    justify-content: flex-start;
+}
+
+/* Message Bubble */
+.msg {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    position: relative;
+    word-wrap: break-word;
+    animation: messageIn 0.3s ease;
+}
+
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* User Message (Right Side - Purple) */
+.msg.user {
+    background: linear-gradient(135deg, #1a237e, #3949ab);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+/* Bot Message (Left Side - White) */
+.msg.bot {
+    background: white;
+    color: #333;
+    border-bottom-left-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e8ecf1;
+}
+
+/* Special Formatting for AI Response */
+.main-point-line {
+    background: linear-gradient(to right, rgba(255, 184, 28, 0.08), transparent);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-left: 3px solid #ffb81c;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+}
+
+.main-point-line:hover {
+    background: linear-gradient(to right, rgba(255, 184, 28, 0.15), transparent);
+    transform: translateX(3px);
+}
+
+.main-point-line i {
+    color: #ffb81c;
+    font-size: 0.9rem;
+}
+
+/* Message Actions (Copy/Listen) */
+.msg-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.msg:hover .msg-actions {
+    opacity: 1;
+}
+
+.msg-actions button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.msg.user .msg-actions button {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.msg.bot .msg-actions button {
+    color: #888;
+}
+
+.msg.user .msg-actions button:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.msg.bot .msg-actions button:hover {
+    color: #1a237e;
+    background: rgba(26, 35, 126, 0.05);
+}
+
+.msg-actions button.active {
+    color: #2ecc71 !important;
+}
+
+.msg-actions button i {
+    font-size: 0.9rem;
+}
+
+/* Chat Footer & Input */
+.chat-footer {
+    padding: 16px 20px;
+    background: white;
+    border-top: 1px solid #e8ecf1;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.chat-footer input {
+    flex: 1;
+    border: 2px solid #e2e8f0;
+    padding: 12px 18px;
+    border-radius: 25px;
+    outline: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+}
+
+.chat-footer input:focus {
+    border-color: #1a237e;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(26, 35, 126, 0.08);
+}
+
+.chat-footer input::placeholder {
+    color: #94a3b8;
+}
+
+.send-btn {
+    background: linear-gradient(135deg, #1a237e, #3949ab);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.send-btn:hover {
+    background: linear-gradient(135deg, #283593, #1a237e);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(26, 35, 126, 0.3);
+}
+
+.send-btn:disabled {
+    background: #cbd5e1;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.send-btn i {
+    font-size: 1rem;
+}
+
+/* Typing Indicator */
+.msg.typing {
+    font-style: italic;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: white;
+    border-radius: 18px;
+    max-width: 200px;
+}
+
+.msg.typing i {
+    color: #1a237e;
+    font-size: 1rem;
+}
+
+/* Text Content */
+.text-content {
+    line-height: 1.6;
+}
+
+.text-content div {
+    margin-bottom: 3px;
+}
+
+/* Scrollbar Styling */
+.chat-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.chat-body::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Loading Dots Animation */
+.typing-dots {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.typing-dots span {
+    width: 8px;
+    height: 8px;
+    background: #94a3b8;
+    border-radius: 50%;
+    animation: typingDot 1.4s infinite;
+}
+
+.typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typingDot {
+    0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    30% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .chat-window {
+        width: calc(100vw - 30px);
+        height: calc(100vh - 150px);
+        right: -5px;
+        bottom: 80px;
+    }
+    
+    .chat-trigger {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .chat-trigger span {
+        display: none;
+    }
+}
+
+@media (max-width: 350px) {
+    .chat-window {
+        width: 80vw;
+        height: 80vh;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,500 @@
+/* --- ዋና መያዣ (Centered Layout) --- */
+.student-chat-container-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.chat-main-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1000px; /* መሃል ላይ እንዲሆን ስፋቱን ገድበነዋል */
+    height: 600px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+}
+
+/* --- የግራ ዝርዝር (Sidebar) --- */
+.req-sidebar {
+    width: 300px;
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: #1a237e;
+    color: white;
+}
+
+.req-items-list {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.req-item-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #edf2f7;
+    transition: 0.3s;
+}
+
+.req-item-card:hover { background: #eff6ff; }
+.req-item-card.active { background: #e0e7ff; border-left: 4px solid #1a237e; }
+
+.req-icon { font-size: 1.2rem; margin-right: 12px; }
+.req-meta { display: flex; flex-direction: column; }
+.adv-name { font-weight: 600; font-size: 0.9rem; color: #1e293b; }
+.status-badge { font-size: 11px; text-transform: uppercase; font-weight: 700; color: #64748b; }
+
+/* --- የቀኝ ቻት መስኮት --- */
+.chat-viewport {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: relative;
+}
+
+.chat-window-header {
+    padding: 15px 25px;
+    border-bottom: 1px solid #edf2f7;
+    background: #fff;
+    font-weight: 700;
+    color: #1a237e;
+}
+
+.advisor-info { display: flex; align-items: center; gap: 10px; }
+.avatar-small {
+    width: 32px; height: 32px; background: #1a237e; color: white;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+}
+
+.chat-messages-area {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    background: #f1f5f9;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+}
+
+/* Original Question Style */
+.original-query-box {
+    background: #fff9c4;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 5px solid #fbc02d;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Chat Bubbles */
+.chat-bubble-wrapper { display: flex; margin-bottom: 12px; width: 100%; }
+.chat-bubble-wrapper.student { justify-content: flex-end; }
+.chat-bubble-wrapper.advisor { justify-content: flex-start; }
+
+.chat-bubble {
+    max-width: 70%;
+    padding: 12px 18px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.student .chat-bubble {
+    background: #1a237e;
+    color: white;
+    border-bottom-right-radius: 2px;
+}
+
+.advisor .chat-bubble {
+    background: white;
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+    border-bottom-left-radius: 2px;
+}
+
+/* Input Area */
+.chat-input-footer {
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #edf2f7;
+    display: flex;
+    gap: 12px;
+}
+
+.chat-input-footer input {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1.5px solid #e2e8f0;
+    outline: none;
+}
+
+.send-msg-btn {
+    background: #1a237e;
+    color: white;
+    border: none;
+    padding: 0 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.send-msg-btn:hover { background: #283593; transform: scale(1.05); }
+
+/* Empty State */
+.chat-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #94a3b8;
+}
+
+.empty-icon { font-size: 4rem; margin-bottom: 10px; }
+
+.advice-main-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Tab Header */
+.advice-tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.advice-tabs button {
+  padding: 12px 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  transition: 0.3s;
+}
+
+.advice-tabs button.active {
+  color: #321a81;
+  border-bottom: 3px solid #321a81;
+}
+
+/* Chat Layout */
+.chat-main-wrapper {
+  display: flex;
+  background: white;
+  height: 70vh;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.req-sidebar {
+  width: 300px;
+  border-right: 1px solid #eee;
+  background: #f8faff;
+  overflow-y: auto;
+}
+
+.chat-viewport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+/* Chat Bubbles */
+.chat-bubble-wrapper {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.chat-bubble-wrapper.student {
+  justify-content: flex-end;
+}
+
+.chat-bubble {
+  max-width: 70%;
+  padding: 12px 18px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.student .chat-bubble {
+  background: #321a81;
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+.advisor .chat-bubble {
+  background: #f0f0f0;
+  color: #333;
+  border-bottom-left-radius: 2px;
+}
+
+/* Input Area */
+.chat-input-footer {
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #eee;
+}
+
+.chat-input-footer input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  outline: none;
+}
+
+.send-msg-btn {
+  background: #321a81;
+  color: white;
+  border: none;
+  padding: 0 25px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.student-chat-layout {
+  height: 80vh;
+  padding: 10px;
+}
+
+.chat-wrapper {
+  display: flex;
+  background: white;
+  border-radius: 20px;
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* Sidebar List */
+.requests-sidebar {
+  width: 320px;
+  background: #f8faff;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-title {
+  padding: 20px;
+  background: #321a81;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.req-card-item {
+  padding: 15px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.req-card-item:hover { background: #f0f0ff; }
+.req-card-item.active { background: #f0f0ff; border-left: 5px solid #321a81; }
+
+.status-pill {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.status-pill.Approved { background: #dcfce7; color: #166534; }
+.status-pill.Pending { background: #fef9c3; color: #854d0e; }
+
+/* Chat Area */
+.chat-view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.chat-messages-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #fdfdfd;
+}
+
+/* Chat Bubbles Logic */
+.chat-bubble-row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+/* የአማካሪው መልስ በግራ (Light Grey) */
+.chat-bubble-row.advisor {
+  justify-content: flex-start;
+}
+.chat-bubble-row.advisor .chat-bubble {
+  background: #f1f1f1;
+  color: #333;
+  border-radius: 18px 18px 18px 2px;
+}
+
+/* የተማሪው መልስ በቀኝ (Purple) */
+.chat-bubble-row.student {
+  justify-content: flex-end;
+}
+.chat-bubble-row.student .chat-bubble {
+  background: #321a81;
+  color: white;
+  border-radius: 18px 18px 2px 18px;
+}
+
+.chat-bubble {
+  max-width: 70%;
+  padding: 12px 18px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.chat-time {
+  display: block;
+  font-size: 9px;
+  margin-top: 5px;
+  opacity: 0.7;
+}
+
+/* Original Question Box */
+.original-question-card {
+  background: #f0eeff;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 30px;
+  border-left: 4px solid #321a81;
+}
+
+.chat-footer {
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid #eee;
+}
+
+.chat-footer input {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.send-btn {
+  background: #321a81;
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat-bubble {
+  position: relative;
+  max-width: 70%;
+}
+
+.bubble-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+  justify-content: flex-end;
+  opacity: 0; /* መጀመሪያ አይታይም */
+  transition: 0.3s;
+}
+
+.chat-bubble:hover .bubble-actions {
+  opacity: 1; /* ማውስ ሲያርፍበት ይታያል */
+}
+
+.bubble-actions svg {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bubble-actions svg:hover {
+  color: white;
+}
+
+/* Edit Mode Input */
+.edit-mode {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.edit-mode input {
+  background: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: #333;
+}
+
+.save-icon { color: #2ecc71; cursor: pointer; }
+.cancel-icon { color: #e74c3c; cursor: pointer; }
+/* የጋራ የቻት አቀማመጥ */
+.chat-bubble-row, .msg-bubble-row {
+  display: flex;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+/* 'እኔ' የምልከው መልእክት (በቀኝ በኩል - ሐምራዊ) */
+.me {
+  justify-content: flex-end;
+}
+.me .chat-bubble, .me .msg-bubble {
+  background-color: #321a81; /* Primary Purple */
+  color: white;
+  border-radius: 18px 18px 2px 18px;
+}
+
+/* 'እሱ/እሷ' የሚልኩልኝ መልእክት (በግራ በኩል - ግራጫ) */
+.them {
+  justify-content: flex-start;
+}
+.them .chat-bubble, .them .msg-bubble {
+  background-color: #f1f1f1;
+  color: #333;
+  border-radius: 18px 18px 18px 2px;
+}
+
+/* የንግግር ሳጥኑ ስፋት */
+.chat-bubble, .msg-bubble {
+  max-width: 70%;
+  padding: 12px 16px;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
